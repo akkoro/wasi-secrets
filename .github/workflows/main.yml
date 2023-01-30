@@ -23,4 +23,4 @@ jobs:
         use-cross: false
         args: --git https://github.com/bytecodealliance/wit-bindgen wit-bindgen-cli
     - name: Generate crate
-      run: wit-bindgen guest rust --out-dir ./out --rustfmt wit/wasi-secrets.wit
+      run: ./scripts/generate-guest.sh
