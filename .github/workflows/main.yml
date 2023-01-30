@@ -11,6 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: WebAssembly/wit-abi-up-to-date@v6
-      with:
-        wit-abi-tag: wit-abi-0.6.0
+    - name: Install latest stable Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+    - name: Install wit-bindgen-cli
+        uses: actions-rs/cargo@v1
+        with:
+          command: install
+          use-cross: false
+          args: --git https://github.com/bytecodealliance/wit-bindgen wit-bindgen-cli
+    - name: Generate crate
+      run: wit-bindgen guest rust --out-dir ./out --rustfmt wit/wasi-secrets.wit
