@@ -22,5 +22,5 @@ jobs:
         command: install
         use-cross: false
         args: --git https://github.com/bytecodealliance/wit-bindgen wit-bindgen-cli
-    - name: Generate crate
-      run: ./scripts/generate-guest.sh
+    - name: Generate guest crate
+      run: ./scripts/generate-rust-guest.sh
