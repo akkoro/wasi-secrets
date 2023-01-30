@@ -6,8 +6,8 @@ on:
     branches: [main]
 
 jobs:
-  abi-up-to-date:
-    name: Check ABI files are up-to-date
+  build-guest-crate:
+    name: Build Rust guest crate
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
